@@ -6,8 +6,15 @@ package EjerciciosOjbParadigmas;
  */
 
 public class Punto {
-	private double x = 3.23; // Está bien asignar los valores acá, o tengo que crear un constructor para que acepte parametros?
-	private double y = 4.23;
+	private double x; // Está bien asignar los valores acá, o tengo que crear un constructor para que acepte parametros?
+	private double y;
+	
+	
+	public Punto(double newX, double newY) 
+	{
+		this.x = newX;
+		this.y = newY;
+	}
 	/// Es mejor hacerlo con los setters?
 	public double obtenerX() 
 	{
@@ -63,5 +70,10 @@ public class Punto {
 		double cuadDifY = Math.sqrt(Math.pow(otro.y,2) - Math.pow(y,2));
 		return Math.sqrt(cuadDifX + cuadDifY);
 		
+	}
+	
+	public String toString() 
+	{
+		return "Coordenada en x: "+ this.x + "\nCoordenada en y: "+this.y;
 	}
 }

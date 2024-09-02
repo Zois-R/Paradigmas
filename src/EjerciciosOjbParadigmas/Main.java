@@ -4,14 +4,24 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Nota n1 = new Nota();
-		n1.setearNota(9);
-		System.out.println(n1.obtenerNota());
-		n1.cambiarNota(112);
-		System.out.println(n1.obtenerNota());
+		Cerradura c1 = new Cerradura(1234,4);
+		
+		c1.abrir(1234);
+		c1.abrir(3421);
+		c1.abrir(3421);
+		c1.abrir(3421);
+		System.out.println("Aperturas fallidas "+c1.contarAperturasFallidas());
+		
+		//c1.abrir(1234);
+		System.out.println("Fue bloqueada? "+c1.fueBloqueada());
+		
+		//si intento abrir estando bloqueada
+		
+	
+		System.out.println("Aperturas exitosas "+c1.contarAperturasExitosas());
 		
 	}
-///En los ejercicios 4 y 5 a que hace referencia con interfaz presentada.
+
 ///En el ejercicio 6 que atributo debería tener cerradura?
 }
 
