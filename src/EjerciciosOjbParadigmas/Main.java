@@ -4,13 +4,9 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		 Rango[] rangos = new Rango[3];
-		 rangos[0] = Rango.rangoCerrado(1.0, 5.0, false, false);
-	     rangos[1] = Rango.rangoAbierto(2.0, 6.0, true, true);
-	     rangos[2] = Rango.rangoCerrIzqAbDer(0.0, 4.0, false, true);
-	     //System.out.println(Rango.abarcador(rangos));  
-	     System.out.println(Rango.sumarRangos(rangos[0], rangos[1]));
-	     System.out.println(rangos[0].desplazarRango(5, rangos[0]));
+		 Circulo c1 = new Circulo(new Punto(0,0),1);
+		 Circulo c2 = new Circulo(new Punto(1,1),1.5);
+		 System.out.println(c1.intersectaCon(c2));
 	}
 
 

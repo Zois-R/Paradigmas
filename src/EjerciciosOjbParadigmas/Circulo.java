@@ -3,25 +3,34 @@ package EjerciciosOjbParadigmas;
 import java.util.Objects;
 
 public class Circulo {
-	/*
-	 * Implementar una clase que modele un círculo, del que se desea manipular
-	 * (obtener y cambiar):
-	 * 
-	 * radio diámetro perímetro área Realizar todas las pruebas que considere
-	 * convenientes. Se pueden agregar métodos privados.
-	 */
+	
+	private Punto centro;
 	private double radio;
 
-	/// Donde es bueno asignar los valores de mis atributos?
-
-	/// Si hago un constructor con parametros son necesarios los getters? Parece que
-	/// si para asegurar la integridad de los datos
 
 	public Circulo(double r) {
 		this.radio = r;
 
 	}
 
+	public Circulo(Punto centro, double radio) 
+	{
+		this.centro = centro;
+		if(radio <= 0)
+			throw new IllegalArgumentException("El radio tiene que ser mayor a cero");
+		this.radio = radio;
+	}
+	
+	public boolean intersectaCon(Circulo c2) {
+       
+        double distanciaCentros = this.centro.distanciaAotroPunto(c2.centro);
+
+        
+        return distanciaCentros <= (this.radio + c2.radio) && distanciaCentros >= Math.abs(this.radio - c2.radio);
+    }
+	
+	
+	
 	public void setRadio(double nuevoRadio) {
 		if (nuevoRadio > 0)
 			this.radio = nuevoRadio;
@@ -65,7 +74,6 @@ public class Circulo {
 	}
 
 	public void cambiarArea(double nuevaArea) {
-//	 Math.PI * Math.pow(nuevoRadio, 2);
 		this.radio = Math.sqrt(nuevaArea / Math.PI);
 	}
 
