@@ -4,25 +4,16 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Cerradura c1 = new Cerradura(1234,4);
-		
-		c1.abrir(1234);
-		c1.abrir(3421);
-		c1.abrir(3421);
-		c1.abrir(3421);
-		System.out.println("Aperturas fallidas "+c1.contarAperturasFallidas());
-		
-		//c1.abrir(1234);
-		System.out.println("Fue bloqueada? "+c1.fueBloqueada());
-		
-		//si intento abrir estando bloqueada
-		
-	
-		System.out.println("Aperturas exitosas "+c1.contarAperturasExitosas());
-		
+		 Rango[] rangos = new Rango[3];
+		 rangos[0] = Rango.rangoCerrado(1.0, 5.0, false, false);
+	     rangos[1] = Rango.rangoAbierto(2.0, 6.0, true, true);
+	     rangos[2] = Rango.rangoCerrIzqAbDer(0.0, 4.0, false, true);
+	     //System.out.println(Rango.abarcador(rangos));  
+	     System.out.println(Rango.sumarRangos(rangos[0], rangos[1]));
+	     System.out.println(rangos[0].desplazarRango(5, rangos[0]));
 	}
 
-///En el ejercicio 6 que atributo debería tener cerradura?
+
 }
 
 /*
