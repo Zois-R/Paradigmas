@@ -1,0 +1,62 @@
+/*La siguiente base de conocimiento corresponde al 
+programa "menú" de un restaurante. El restaurante ofrece 
+menús completos compuestos por una entrada, un plato 
+principal y un postre. El plato principal puede ser
+ carne o pescado.
+ */
+entrada(paella).
+entrada(gazpacho).
+entrada(consomé).
+
+carne('filete de cerdo').
+carne('pollo asado').
+
+pescado(trucha).
+pescado(bacalao).
+
+postre(flan).
+postre(helado).
+postre(pastel).
+
+bebida(vino).
+bebida(cerveza).
+bebida('agua natural').
+
+menu(Entrada,PlatoPrincipal,Postre) :-  entrada(Entrada),
+    (   carne(PlatoPrincipal);pescado(PlatoPrincipal)),
+    postre(Postre).
+/*¿Cuáles son los menús que tienen consomé en las entradas?
+(menu_con_consomé/3). ¿Sería mejor esta regla con 2 parámetros?
+  */
+menuCon(Entrada,PlatoPrincipal,Postre):-  entrada(Entrada),
+    Entrada = consomé,
+    (   carne(PlatoPrincipal);pescado(PlatoPrincipal)),
+    postre(Postre).
+
+%¿Cuáles son los menús que no contienen
+% flan como postre? (menu_sin_flan/3)
+
+menuSinFlan(Entrada,PlatoPrincipal,Postre):- entrada(Entrada),
+    (   carne(PlatoPrincipal);pescado(PlatoPrincipal)),
+    postre(Postre),
+    Postre \= flan.
+
+%¿Cuáles son los menús que tienen carne 
+%como plato principal? (menu_con_carne/3)
+
+menuConCarne(Entrada,PlatoPrincipal,Postre):-
+    entrada(Entrada),
+    carne(PlatoPrincipal),
+    postre(Postre).
+
+
+/*
+ * Completar el programa "menú" de manera que una comida 
+ * esté formada también por la elección de una bebida,
+ *  a elegir entre vino, cerveza o agua mineral. (menu/4)
+ */
+menuConBebida(Entrada,PlatoPrincipal,Bebida,Postre):-
+    entrada(Entrada),
+    (   carne(PlatoPrincipal);pescado(PlatoPrincipal)),
+    bebida(Bebida),
+    postre(Postre).
